@@ -1,4 +1,4 @@
-import translate from "@vitalets/google-translate-api";
+import { translate } from "@vitalets/google-translate-api";
 
 /**
  * Translates text from source language to target language
