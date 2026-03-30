@@ -1,4 +1,4 @@
-import { translate } from "@vitalets/google-translate-api";
+import translate from "@iamtraction/google-translate";
 
 /**
  * Translates text from source language to target language
@@ -12,10 +12,15 @@ export const translateText = async (text, targetLang) => {
       throw new Error("Text and target language are required");
     }
 
+    console.log(`[TRANSLATE] Translating: "${text}" -> ${targetLang}`);
+
     const result = await translate(text, { to: targetLang });
+
+    console.log(`[TRANSLATE] Result: "${result.text}"`);
+
     return result.text;
   } catch (error) {
-    console.error("Translation error:", error);
+    console.error("Translation error:", error.message);
     // Return original text if translation fails
     return text;
   }
